@@ -3,8 +3,7 @@ class Solution {
         int X=0;
         for(int i=0;i<operations.length;i++)
         {
-            char str=operations[i].charAt(1);
-            if(str=='+')
+            if(operations[i].charAt(1)=='+')
                 X=X+1;
             else
                 X=X-1;
