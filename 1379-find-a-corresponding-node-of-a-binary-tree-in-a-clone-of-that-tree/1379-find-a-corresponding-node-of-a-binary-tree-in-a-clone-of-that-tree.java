@@ -9,23 +9,18 @@
  */
 
 class Solution {
-    TreeNode ans,target
-;    public final TreeNode getTargetCopy(final TreeNode original, final TreeNode cloned, final TreeNode target) {
-    this.target=target;
-    inorder(original,cloned);
-    return ans;
+    public final TreeNode getTargetCopy(final TreeNode original, final TreeNode cloned, final TreeNode target) {
+        if(original==null || original==target)
+            return cloned;
+        TreeNode oleft=original.left;
+        TreeNode cleft=cloned.left;
+        TreeNode left=getTargetCopy(oleft,cleft,target);
+        if(left!=null)
+            return left;
+        TreeNode oright=original.right;
+        TreeNode cright=cloned.right;
+        TreeNode right=getTargetCopy(oright,cright,target);
+        return right;
         
     }
-    public void inorder(TreeNode o,TreeNode c)
-    {
-        if(o!=null)
-        {
-            inorder(o.left,c.left);
-            if(o==target)
-                ans=c;
-            inorder(o.right,c.right);
-        }
-    }
-    
-    
 }
